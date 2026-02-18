@@ -29,6 +29,10 @@ Build:        Turborepo · pnpm · Vite
 Testing:      Vitest · Playwright · Testing Library
 ```
 
+### Leadership
+
+Founded by [Cedric Strickland](https://github.com/cedstrickland) — Staff PM Lead at Google, 15+ years building billion-user products at Google, Microsoft, and startups.
+
 ### Connect
 
 [neuaholdings.com](https://neuaholdings.com) · [contact@neuaholdings.com](mailto:contact@neuaholdings.com)
