@@ -10,11 +10,12 @@ Neua Labs is the technology and innovation division of [Neua Holdings](https://n
 
 | Product | Description | Status |
 |---------|-------------|--------|
-| [Neua Studio](https://neua.llc/studio) | Full-stack development platform — 27+ packages, 195+ components, powering all products below | Live |
+| [Neua Studio](https://neua.llc/studio) | Full-stack development platform — 28+ packages, 195+ components, powering all products below | Live |
 | [Neua Agents](https://agents.neua.llc) | AI assistant platform with tool registry, streaming, and on-device Chrome AI | Live |
 | [Neua Cares](https://cares.neua.llc) | Care coordination platform with multi-language support and AI workflows | Live |
 | [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform with AI chat, scheduling, and workouts | Live |
 | [Neua Homes](https://homes.neua.llc) | Property management platform for landlords, tenants, and vendors | Live |
+| [Neua Travel](https://travel.neua.llc) | Editorial travel platform — curated recs, interactive map, Atlanta destination page | Live |
 | [Product Compare](https://compare.neua.llc) | Side-by-side product comparison tool | Live |
 | [Kindred Executive](https://www.kindredexec.com/) | Executive search and talent consulting platform | Live |
 | [Therri Elise](https://www.therrielise.com/) | Author and creator brand platform | Live |
