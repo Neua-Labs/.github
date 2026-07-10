@@ -10,7 +10,15 @@ name: Reusable Framework Bump
 #     workflow_dispatch:
 #   jobs:
 #     bump:
+#       # REQUIRED: the caller job must grant write — a reusable workflow's own
+#       # permissions block can only narrow the caller's token, never escalate it.
+#       # (Also set repo Settings > Actions > Workflow permissions = read/write.)
+#       permissions:
+#         contents: write
+#         pull-requests: write
 #       uses: Neua-Labs/.github/.github/workflows/reusable-framework-bump.yml@main
+#       with:
+#         has-functions: true   # if the repo has a functions/ subpackage
 #       secrets:
 #         NEUA_PACKAGES_TOKEN: ${{ secrets.NEUA_PACKAGES_TOKEN }}
 
@@ -21,6 +29,10 @@ on:
         description: 'Node version.'
         type: string
         default: '22'
+      has-functions:
+        description: 'Also bump @neua-labs/* in the npm-managed functions/ subpackage (outside the pnpm tree).'
+        type: boolean
+        default: false
     secrets:
       NEUA_PACKAGES_TOKEN:
         description: 'GitHub PAT with read:packages.'
@@ -48,17 +60,30 @@ jobs:
         id: bump
         run: |
           pnpm update "@neua-labs/*" --latest --recursive
+          # functions/ is an npm-managed subpackage outside the pnpm tree, so
+          # pnpm --recursive never touches it — bump it separately.
+          if [ "${{ inputs.has-functions }}" = "true" ] && [ -f functions/package.json ]; then
+            (cd functions && npx --yes npm-check-updates -u --filter '@neua-labs/*' && npm install)
+          fi
           if git diff --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Verify build with bumped deps
+      - name: Verify frontend build with bumped deps
         if: steps.bump.outputs.changed == 'true'
         run: |
           pnpm install --no-frozen-lockfile
           pnpm build
+
+      - name: Verify functions build with bumped deps
+        if: ${{ steps.bump.outputs.changed == 'true' && inputs.has-functions }}
+        working-directory: functions
+        run: |
+          npm ci
+          npm run type-check
+          npm run bundle
 
       - name: Open or refresh the bump PR
         if: steps.bump.outputs.changed == 'true'

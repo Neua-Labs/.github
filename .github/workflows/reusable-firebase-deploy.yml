@@ -28,9 +28,9 @@ on:
         type: string
         default: '22'
       has-functions:
-        description: 'Build the `functions/` subpackage before deploy.'
+        description: 'Build the `functions/` subpackage before deploy. Opt-in (matches reusable-app-ci) — set true only if the repo has a functions/ dir.'
         type: boolean
-        default: true
+        default: false
       only:
         description: 'firebase deploy --only target (e.g. hosting, functions, firestore:rules).'
         type: string

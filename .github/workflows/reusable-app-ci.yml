@@ -54,9 +54,15 @@ jobs:
       - name: Authenticate to GitHub Packages
         run: printf '\n//npm.pkg.github.com/:_authToken=%s\n' "${{ secrets.NEUA_PACKAGES_TOKEN }}" >> .npmrc
       - run: pnpm install --frozen-lockfile
+      # Runs `type-check`, plus `type-check:scripts` when the app defines it
+      # (neua-fit does), so migrating to this workflow drops no coverage.
       - name: Type-check
         if: ${{ inputs.run-type-check }}
-        run: pnpm type-check
+        run: |
+          pnpm type-check
+          if node -e "process.exit(require('./package.json').scripts?.['type-check:scripts']?0:1)"; then
+            pnpm type-check:scripts
+          fi
       - run: pnpm build
       - run: pnpm test
 

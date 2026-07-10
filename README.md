@@ -33,5 +33,26 @@ jobs:
 Required repo secrets: `NEUA_PACKAGES_TOKEN` (read:packages PAT for the private
 `@neua-labs/*` registry) and, for deploys, `FIREBASE_SERVICE_ACCOUNT`.
 
+**`reusable-framework-bump.yml` opens a PR**, so its caller job must grant write
+permissions (a reusable workflow can only narrow the caller's token, never
+escalate it) — and the repo's Settings → Actions → Workflow permissions must be
+"Read and write":
+
+```yaml
+jobs:
+  bump:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: Neua-Labs/.github/.github/workflows/reusable-framework-bump.yml@main
+    with:
+      has-functions: true   # also bumps the npm-managed functions/ subpackage
+    secrets:
+      NEUA_PACKAGES_TOKEN: ${{ secrets.NEUA_PACKAGES_TOKEN }}
+```
+
+`has-functions` (on the CI, deploy, and bump workflows) is **opt-in** — set it
+`true` only when the repo has a `functions/` subpackage.
+
 Pin callers to `@main` so fixes to shared CI propagate without a satellite
 commit (the ADR-0002 propagation hierarchy).
