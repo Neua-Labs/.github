@@ -1,0 +1,83 @@
+name: Reusable Framework Bump
+
+# Weekly bump of the @neua-labs/* framework in a satellite repo, per ADR-0002's
+# release-train model. Updates every @neua-labs/* dependency to its latest
+# published version, verifies the build, and opens (or refreshes) a single
+# grouped PR. Callers schedule it:
+#
+#   on:
+#     schedule: [{ cron: '0 8 * * 2' }]   # staggered after the Tuesday release train
+#     workflow_dispatch:
+#   jobs:
+#     bump:
+#       uses: Neua-Labs/.github/.github/workflows/reusable-framework-bump.yml@main
+#       secrets:
+#         NEUA_PACKAGES_TOKEN: ${{ secrets.NEUA_PACKAGES_TOKEN }}
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: 'Node version.'
+        type: string
+        default: '22'
+    secrets:
+      NEUA_PACKAGES_TOKEN:
+        description: 'GitHub PAT with read:packages.'
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: pnpm
+
+      - name: Authenticate to GitHub Packages
+        run: printf '\n//npm.pkg.github.com/:_authToken=%s\n' "${{ secrets.NEUA_PACKAGES_TOKEN }}" >> .npmrc
+
+      - name: Bump @neua-labs/* to latest
+        id: bump
+        run: |
+          pnpm update "@neua-labs/*" --latest --recursive
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify build with bumped deps
+        if: steps.bump.outputs.changed == 'true'
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm build
+
+      - name: Open or refresh the bump PR
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH=automation/framework-bump
+          git config user.name 'Liam (Neua bot)'
+          git config user.email 'liam@agents.neua.llc'
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "chore(deps): bump @neua-labs/* framework to latest
+
+          Automated weekly framework bump (ADR-0002 release train). Build verified.
+
+          Co-Authored-By: Liam <liam@agents.neua.llc>"
+          git push -f origin "$BRANCH"
+          if ! gh pr view "$BRANCH" --json state --jq '.state' 2>/dev/null | grep -q OPEN; then
+            gh pr create --head "$BRANCH" \
+              --title "chore(deps): bump @neua-labs/* framework to latest" \
+              --body "Automated weekly framework bump (ADR-0002 release train). The build was verified against the new versions in CI. Review the changed \`@neua-labs/*\` versions and merge."
+          fi

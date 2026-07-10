@@ -1,0 +1,85 @@
+name: Reusable Firebase Deploy
+
+# Shared manual deploy for Neua satellite app repos. Generalizes each
+# satellite's copy-pasted deploy.yml (ADR-0002). Callers wrap it in a
+# workflow_dispatch shim:
+#
+#   on:
+#     workflow_dispatch:
+#       inputs:
+#         only:
+#           type: string
+#           default: 'hosting,functions,firestore:rules'
+#   jobs:
+#     deploy:
+#       uses: Neua-Labs/.github/.github/workflows/reusable-firebase-deploy.yml@main
+#       with:
+#         has-functions: true
+#         only: ${{ inputs.only }}
+#       secrets:
+#         NEUA_PACKAGES_TOKEN: ${{ secrets.NEUA_PACKAGES_TOKEN }}
+#         FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: 'Node version.'
+        type: string
+        default: '22'
+      has-functions:
+        description: 'Build the `functions/` subpackage before deploy.'
+        type: boolean
+        default: true
+      only:
+        description: 'firebase deploy --only target (e.g. hosting, functions, firestore:rules).'
+        type: string
+        default: 'hosting,functions,firestore:rules'
+    secrets:
+      NEUA_PACKAGES_TOKEN:
+        description: 'GitHub PAT with read:packages.'
+        required: true
+      FIREBASE_SERVICE_ACCOUNT:
+        description: 'Service-account JSON (Hosting Admin + Cloud Functions Admin on the target project).'
+        required: true
+
+concurrency: deploy-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: pnpm
+
+      - name: Authenticate to GitHub Packages
+        run: |
+          printf '\n//npm.pkg.github.com/:_authToken=%s\n' "${{ secrets.NEUA_PACKAGES_TOKEN }}" >> .npmrc
+          if [ -d functions ]; then
+            printf '\n//npm.pkg.github.com/:_authToken=%s\n' "${{ secrets.NEUA_PACKAGES_TOKEN }}" >> functions/.npmrc
+          fi
+
+      - name: Build frontend
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Build functions
+        if: ${{ inputs.has-functions }}
+        working-directory: functions
+        run: |
+          npm ci
+          npm run type-check
+          npm run bundle
+
+      - name: Write service-account credentials
+        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$RUNNER_TEMP/sa.json"
+
+      - name: Deploy
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/sa.json
+        run: npx firebase-tools@latest deploy --only "${{ inputs.only }}" --non-interactive
