@@ -2,7 +2,7 @@
 
 **Enriching society through transformative innovation.**
 
-Neua Labs is the technology and innovation division of [Neua Holdings](https://neua.llc), building products across AI, developer tools, web platforms, and publishing.
+Neua Labs is the engineering home of [Neua](https://neua.llc), an independent applied-AI product lab building across AI, developer tools, web platforms, and publishing.
 
 ---
 
@@ -36,8 +36,8 @@ Testing:      Vitest · Playwright · Testing Library
 
 ### Leadership
 
-Founded by [Cedric Strickland](https://github.com/cedstrickland) — Head of Product, Gmail Enterprise & AI at Google; 14+ years building billion-user products at Google, Microsoft, and startups.
+Founded by [Cedric Strickland](https://github.com/cedstrickland) — Head of Product, Gmail Enterprise & AI at Google; building billion-user products at Google and Microsoft since 2013.
 
 ### Connect
 
-[neua.llc](https://neua.llc) · [hello@neua.llc](mailto:hello@neua.llc) · [eng@neua.llc](mailto:eng@neua.llc)
+[neua.llc](https://neua.llc) · [hello@neua.llc](mailto:hello@neua.llc)
