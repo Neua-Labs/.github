@@ -10,7 +10,7 @@ Neua Labs is the engineering home of [Neua](https://neua.llc), an independent ap
 
 | Product | Description | Status |
 |---------|-------------|--------|
-| [Neua Studio](https://neua.llc/studio) | Full-stack development platform — 80+ packages, 13 apps, powering all products below | Live |
+| [Neua Studio](https://neua.llc/studio) | Full-stack development platform: 54 in-house packages, 12 live products, powering everything below | Live |
 | Neua Nexus | Agentic team-workspace R&D — humans + AI operators collaborating across tasks, docs, calendar, and code. 11 surfaces, PWA-first, 7-second undo on every action. | In development |
 | [Neua Cares](https://cares.neua.llc) | Care coordination platform with multi-language support and AI workflows | Live |
 | [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform with AI chat, scheduling, and workouts | Live |
