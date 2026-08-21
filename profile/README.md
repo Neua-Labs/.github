@@ -1,8 +1,8 @@
-# Neua Labs
+# Neua
 
-**An independent applied-AI product lab shipping across AI, developer tools, web platforms, and publishing.**
+**An independent applied-AI product lab: 8 live products and 7 more in beta or development, on a shared platform of 54 in-house packages.**
 
-Neua Labs is the engineering home of [Neua](https://neua.llc), an independent applied-AI product lab building across AI, developer tools, web platforms, and publishing.
+Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedric Strickland](https://github.com/cedstrickland). Everything here is designed, built, and shipped end to end with agentic development workflows.
 
 ---
 
@@ -10,18 +10,21 @@ Neua Labs is the engineering home of [Neua](https://neua.llc), an independent ap
 
 | Product | Description | Status |
 |---------|-------------|--------|
-| [Neua Studio](https://neua.llc/studio) | Full-stack development platform: 12 live products on a shared platform of 54 in-house packages, powering everything below | Live |
-| Neua Nexus | Agentic team-workspace R&D: humans + AI operators collaborating across tasks, docs, calendar, and code. 11 surfaces, PWA-first, 7-second undo on every action. | In development |
-| [Neua Cares](https://cares.neua.llc) | Care coordination platform with multi-language support and AI workflows | Live |
-| [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform with AI chat, scheduling, and workouts | Live |
-| [Neua Homes](https://homes.neua.llc) | Property management platform for landlords, tenants, and vendors | Live |
-| [Neua Travel](https://travel.neua.llc) | Social travel platform: 128 curated places across 6 destinations, hybrid search (curated + Wikipedia + OSM), interactive map | Live |
-| [Product Compare](https://compare.neua.llc) | Side-by-side product comparison tool | Live |
-| [Kindred Executive](https://www.kindredexec.com/) | Executive search and talent consulting platform | Live |
-| [Therri Elise](https://www.therrielise.com/) | Author and creator brand platform | Live |
+| [Neua Studio](https://neua.llc/studio) | The shared development platform behind every product below: 54 in-house packages spanning UI, auth, AI, analytics, and tooling | Platform |
 | [Cedric Strickland](https://cedricstrickland.com) | Executive portfolio with visitor-intent personalization | Live |
-| Vibe Check | Technical debt audit for TypeScript: detection engine + MCP server for AI coding agents | Private (GitHub Packages) |
-| [My Black Job](https://myblackjobthebook.com) | Children's book series celebrating Black professional excellence | Published |
+| [My Black Job](https://myblackjobthebook.com) | Children's book celebrating Black professional excellence, from Neua Publishing House | Live |
+| [Jury Day](https://juryday.neua.llc) | Privacy-first companion for jury duty: anonymous by design, installable PWA | Live |
+| [Product Compare](https://compare.neua.llc) | Side-by-side product comparison engine | Live |
+| [Neua TidyTabs](https://chromewebstore.google.com/detail/neua-tidytabs/iofdpphnnjmngjidcodbhcdajilbbbeg) | Chrome extension that automatically closes duplicate tabs | Live |
+| [Twitter/X Cleaner](https://chromewebstore.google.com/detail/twitterx-cleaner/indnkgdkgflocokiimfkbkljhhfojhfa) | Chrome extension for bulk cleanup of a Twitter/X account | Live |
+| [Kindred Executive](https://www.kindredexec.com/) | Client build: marketing site for a boutique executive-search firm | Live |
+| Neua Nexus | Agentic team workspace: humans + AI operators working from the same queue across email, chat, GitHub, and calendar | Private beta |
+| Vibe Check | Code-analysis toolchain giving AI coding agents production-readiness feedback over MCP | Private beta |
+| [When Women Connect](https://wwc.neua.llc) | Community platform: curated events, member venues, city-by-city discovery | Private beta |
+| [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform: trainer marketplace, programs, scheduling, AI coaching | In development |
+| [Neua Cares](https://cares.neua.llc) | Family health coordination with multi-language support and AI workflows | Coming soon |
+| [Neua Homes](https://homes.neua.llc) | Property search and management for landlords, tenants, and vendors | Coming soon |
+| [Neua Travel](https://travel.neua.llc) | Social travel: trusted circles, 128 curated places across 6 destinations | Coming soon |
 
 ### Tech Stack
 
@@ -40,4 +43,5 @@ Founded by [Cedric Strickland](https://github.com/cedstrickland): Head of Produc
 
 ### Connect
 
-[neua.llc](https://neua.llc) · [hello@neua.llc](mailto:hello@neua.llc)
+- Web: [neua.llc](https://neua.llc)
+- Contact: hello@neua.llc
