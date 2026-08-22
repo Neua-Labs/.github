@@ -18,9 +18,9 @@ Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedri
 | [Twitter/X Cleaner](https://chromewebstore.google.com/detail/twitterx-cleaner/indnkgdkgflocokiimfkbkljhhfojhfa) | Chrome extension for bulk cleanup of a Twitter/X account | Live |
 | [Kindred Executive](https://www.kindredexec.com/) | Client build: marketing site for a boutique executive-search firm | Live |
 | Neua Nexus | Agentic team workspace: humans + AI operators working from the same queue across email, chat, GitHub, and calendar | Private beta |
-| Vibe Check | Code-analysis toolchain giving AI coding agents production-readiness feedback over MCP | Private beta |
+| [Vibe Check](https://vibecheck.neua.llc) | Code-analysis toolchain giving AI coding agents production-readiness feedback over MCP | Private beta |
 | [When Women Connect](https://wwc.neua.llc) | Community platform: curated events, member venues, city-by-city discovery | Private beta |
-| [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform: trainer marketplace, programs, scheduling, AI coaching | Private beta |
+| [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform: trainer marketplace, programs, scheduling, AI coaching | Coming soon |
 | [Neua Cares](https://cares.neua.llc) | Family health coordination with multi-language support and AI workflows | Coming soon |
 | [Neua Homes](https://homes.neua.llc) | Property search and management for landlords, tenants, and vendors | Coming soon |
 | [Neua Travel](https://travel.neua.llc) | Social travel: trusted circles, 128 curated places across 6 destinations | Coming soon |
