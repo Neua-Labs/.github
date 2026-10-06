@@ -1,6 +1,6 @@
 # Neua
 
-**An independent applied-AI product lab: 6 live products and 7 more in beta or development, on a shared platform of 54 in-house packages.**
+**An independent applied-AI product lab: 7 live products and 6 more in beta or development, on a shared platform of 54 in-house packages.**
 
 Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedric Strickland](https://github.com/cedstrickland). Everything here is designed, built, and shipped end to end with agentic development workflows.
 
@@ -19,7 +19,7 @@ Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedri
 | [Kindred Executive](https://www.kindredexec.com/) | Client build: marketing site for a boutique executive-search firm | Live |
 | Neua Nexus | Agentic team workspace: humans + AI operators working from the same queue across email, chat, GitHub, and calendar | Private beta |
 | [Vibe Check](https://vibecheck.neua.llc) | Code-analysis toolchain giving AI coding agents production-readiness feedback over MCP | Private beta |
-| [When Women Connect](https://wwc.neua.llc) | Community platform: curated events, member venues, city-by-city discovery | Private beta |
+| [When Women Connect](https://wwc.neua.llc) | Community platform: event discovery, crews, chat, and city-by-city connections | Live |
 | [Neua Fit](https://fit.neua.llc) | Multi-tenant fitness platform: trainer marketplace, programs, scheduling, AI coaching | Coming soon |
 | [Neua Cares](https://cares.neua.llc) | Family health coordination with multi-language support and AI workflows | Coming soon |
 | [Neua Homes](https://homes.neua.llc) | Property search and management for landlords, tenants, and vendors | Coming soon |
