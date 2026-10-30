@@ -40,7 +40,7 @@ Testing:      Vitest · Playwright · Testing Library
 
 ### Leadership
 
-Founded by [Cedric Strickland](https://github.com/cedstrickland): Head of Product, Gmail Enterprise & AI at Google; building billion-user products at Google and Microsoft since 2013.
+Founded by [Cedric Strickland](https://github.com/cedstrickland): Product Management Lead, Gmail Enterprise at Google; building billion-user products at Google and Microsoft since 2013.
 
 ### Connect
 
