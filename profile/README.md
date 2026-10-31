@@ -1,6 +1,6 @@
 # Neua
 
-**An independent applied-AI product lab: 7 live products and 6 more in beta or development, on a shared platform of 54 in-house packages.**
+**An independent applied-AI product lab.**
 
 Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedric Strickland](https://github.com/cedstrickland). Everything here is designed, built, and shipped end to end with agentic development workflows.
 
@@ -10,7 +10,7 @@ Neua-Labs is the engineering home of [Neua](https://neua.llc), founded by [Cedri
 
 | Product | Description | Status |
 |---------|-------------|--------|
-| [Neua Studio](https://neua.llc/studio) | The shared development platform behind every product below: 54 in-house packages spanning UI, auth, AI, analytics, and tooling | Platform |
+| [Neua Studio](https://neua.llc/studio) | The shared development platform behind every product below: in-house packages spanning UI, auth, AI, analytics, and tooling | Platform |
 | [My Black Job](https://myblackjobthebook.com) | Children's book celebrating Black professional excellence, from Neua Publishing House | Live |
 | [Jury Day](https://juryday.neua.llc) | Privacy-first companion for jury duty: anonymous by design, installable PWA | Live |
 | [Product Compare](https://compare.neua.llc) | Side-by-side product comparison engine | Live |
@@ -40,7 +40,7 @@ Testing:      Vitest · Playwright · Testing Library
 
 ### Leadership
 
-Founded by [Cedric Strickland](https://github.com/cedstrickland): Product Management Lead, Gmail Enterprise at Google; building billion-user products at Google and Microsoft since 2013.
+Founded by [Cedric Strickland](https://github.com/cedstrickland), who has been building billion-user products since 2013.
 
 ### Connect
 
